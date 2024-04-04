@@ -16,4 +16,6 @@ tasks:
     command: wasmtime serve -Scommon ./target/wasm32-wasi/debug/hello_wasi_http.wasm
   - name: test
     openMode: tab-after
-    command: curl localhost:8080
+    command: |
+      gp ports await 8080
+      curl localhost:8080
