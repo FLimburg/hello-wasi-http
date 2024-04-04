@@ -17,8 +17,9 @@ tasks:
       gp sync-done build
   - name: run
     openMode: tab-after
-    init: gp sync-await build
-    command: wasmtime serve -Scommon ./target/wasm32-wasi/debug/hello_wasi_http.wasm
+    command: |
+      gp sync-await build
+      wasmtime serve -Scommon ./target/wasm32-wasi/debug/hello_wasi_http.wasm
   - name: test
     openMode: tab-after
     command: |
