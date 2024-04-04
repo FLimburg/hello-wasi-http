@@ -4,12 +4,12 @@
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-rust
 
 tasks:
   - name: build and run
     init: |
+      cargo install wasmtime-cli wasm-tools cargo-component
       cargo component build
       wasm-tools component wit target/wasm32-wasi/debug/hello_wasi_http.wasm
     command: wasmtime serve -Scommon ./target/wasm32-wasi/debug/hello_wasi_http.wasm
