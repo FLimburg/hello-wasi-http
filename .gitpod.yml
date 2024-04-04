@@ -10,5 +10,8 @@ image:
 tasks:
   - name: prep
     before: cargo install wasmtime-cli wasm-tools cargo-component
-    init: cargo component build
     command: cargo watch -x run
+  - name: build
+    command: cargo component build && wasm-tools component wit target/wasm32-wasi/debug/hello_wasi_http.wasm
+  - name: run
+    command: wasmtime serve -Scommon ./target/wasm32-wasi/debug/hello_wasi_http.wasm
