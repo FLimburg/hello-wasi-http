@@ -8,12 +8,15 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: prep and build
-    init: cargo install wasmtime-cli wasm-tools cargo-component
-    before: |
+  - name: prep
+    init: |
+      cargo install wasmtime-cli wasm-tools cargo-component
       cargo component build
       wasm-tools component wit target/wasm32-wasi/debug/hello_wasi_http.wasm
-    command:
+  - name: build
+    command: |
+      cargo component build
+      wasm-tools component wit target/wasm32-wasi/debug/hello_wasi_http.wasm
       gp sync-done build
   - name: run
     openMode: tab-after
