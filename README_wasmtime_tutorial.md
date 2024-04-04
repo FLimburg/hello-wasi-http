@@ -12,6 +12,7 @@ In this workshop, we're going to:
 
 ## 0. TL/DR
 
+This Readme originates from https://github.com/cosmonic-labs/kubecon2024-eu-wasm-workshop and has been implemented as a gitpod.
 Just open in gitpod.io and everything will setup and run on it's own
 
 ## 📦 1. Setup
