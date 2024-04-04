@@ -10,5 +10,5 @@ image:
 tasks:
   - name: prep
     before: cargo install wasmtime-cli wasm-tools cargo-component
-    init: cargo build
+    init: cargo component build
     command: cargo watch -x run
